@@ -435,4 +435,34 @@ public class LinkedList{
 		}
 		return head;
 	}
+	
+	public Node segregateOddEven(){
+		if(head == null || head.next == null)
+			return head;
+		Node evenEnd = null;
+		Node oddStart = null;
+		Node oddEnd = null;
+		Node curr = head;
+		while(curr != null){
+			if(curr.data % 2 == 0){
+				if(evenEnd == null)
+					head = curr;
+				if(evenEnd != null)
+					evenEnd.next = curr;
+				evenEnd = curr;
+			}else{
+				if(oddStart == null)
+					oddStart = curr;
+				if(oddEnd != null)
+					oddEnd.next = curr;
+				oddEnd = curr;
+			}
+			curr = curr.next;
+		}
+		if(evenEnd != null)
+			evenEnd.next = oddStart;
+		if(oddEnd != null)
+			oddEnd.next = null;
+		return head;
+	}
 }

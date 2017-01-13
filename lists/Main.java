@@ -9,10 +9,10 @@ public static void main(String[] args){
 	linkedList.addNode(20);
 	linkedList.addNode(25);
 	linkedList.addNode(100);
-	/*linkedList.addNode(6);
+	linkedList.addNode(6);
 	linkedList.addNode(2);
 	linkedList.addNode(3);
-	*/
+	
 	LinkedList ll = new LinkedList();
 	ll.addNode(9);
 	ll.addNode(2);
@@ -35,7 +35,8 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.intersection(linkedList.head, ll.head));
 	//linkedList.printList(linkedList.removeDuplicates());
 	//linkedList.printList(linkedList.deleteGreater());
-	linkedList.printList(linkedList.zigzag());
+	//linkedList.printList(linkedList.zigzag());
+	linkedList.printList(linkedList.segregateOddEven());
 }
 
 }

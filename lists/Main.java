@@ -7,16 +7,16 @@ public static void main(String[] args){
 	linkedList.addNode(11);
 	linkedList.addNode(15);
 	linkedList.addNode(20);
-	linkedList.addNode(25);
-	linkedList.addNode(100);
-	linkedList.addNode(6);
-	linkedList.addNode(2);
-	linkedList.addNode(3);
+	//linkedList.addNode(25);
+	//linkedList.addNode(100);
+	//linkedList.addNode(6);
+	//linkedList.addNode(2);
+	//linkedList.addNode(3);
 	
 	LinkedList ll = new LinkedList();
 	ll.addNode(9);
-	ll.addNode(2);
-	ll.addNode(7);
+	ll.addNode(20);
+	ll.addNode(70);
 
 	//linkedList.reverseLinkedList();
 	
@@ -36,7 +36,10 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.removeDuplicates());
 	//linkedList.printList(linkedList.deleteGreater());
 	//linkedList.printList(linkedList.zigzag());
-	linkedList.printList(linkedList.segregateOddEven());
+	//linkedList.printList(linkedList.segregateOddEven());
+	//linkedList.printList(linkedList.sortedIntersectionRecur(linkedList.head, ll.head));
+	//linkedList.printList(linkedList.swapNodes(20,11));
+	linkedList.printList(linkedList.deleteMiddle());
 }
 
 }

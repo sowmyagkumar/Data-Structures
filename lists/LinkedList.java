@@ -465,4 +465,95 @@ public class LinkedList{
 			oddEnd.next = null;
 		return head;
 	}
+	
+	public Node sortedIntersectionIter(Node h1, Node h2){
+		if(h1 == null || h2 == null)
+			return null;
+		Node h = null;
+		Node curr = null;
+		while(h1 != null && h2 != null){
+			if(h1.data == h2.data){
+				if(h == null){
+					h = new Node(h1.data);
+					curr = h;
+				}else{
+					curr.next = new Node(h1.data);
+					curr = curr.next;
+				}
+				h1 = h1.next;
+				h2 = h2.next;
+			}
+			if(h1.data > h2.data){
+				h2 = h2.next;
+			}
+			if(h1.data < h2.data){
+				h1 = h1.next;
+			}
+		}
+		return h;
+	}
+	
+	public Node sortedIntersectionRecur(Node h1, Node h2){
+		if(h1 == null || h2 == null)
+			return null;
+		if(h1.data == h2.data){
+			Node temp = new Node(h1.data);
+			temp.next = sortedIntersectionRecur(h1.next, h2.next);
+			return temp;
+		}else if(h1.data > h2.data){
+			return sortedIntersectionRecur(h1, h2.next);
+		}
+		return sortedIntersectionRecur(h1.next, h2);
+	}
+	
+	
+	public Node swapNodes(int xVal, int yVal){
+		Node currX = head, prevX = null, currY = head, prevY = null;
+		
+		while(currX != null){
+			if(currX.data == xVal){
+				break;
+			}
+			prevX = currX;
+			currX = currX.next;
+		}
+		while(currY != null){
+			if(currY.data == yVal){
+				break;
+			}
+			prevY = currY;
+			currY = currY.next;
+		}
+		if(prevX == null){
+			head = currY;
+		}
+		if(prevY == null){
+			head = currX;
+		}
+		if(prevX!=null)
+			prevX.next=currY;
+		if(prevY!=null)
+			prevY.next=currX;
+		Node nextX= currX.next, nextY=currY.next;
+		currX.next=nextY;
+		currY.next=nextX;
+		return head;
+	}
+	
+	public Node deleteMiddle(){
+		if(head == null || head.next == null)
+			return null;
+		
+		Node slow = head;
+		Node fast = head;
+		Node prev = null;
+		
+		while(fast != null && fast.next !=null){
+			prev = slow;
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		prev.next = slow.next;
+		return head;
+	}
 }

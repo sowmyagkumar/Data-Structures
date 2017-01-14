@@ -12,6 +12,7 @@ class Node{
 		this.data = data;
 		this.next = null;
 	}
+	
 	public int getData(){
 		return data;
 	}
@@ -655,5 +656,120 @@ public class LinkedList{
 		currX.next = currY.next;
 		currY.next = temp;
 		return;
+	}
+	
+	/*public Node cloneArbitrary(){
+		Node original = head;
+		while(original != null){
+			Node temp = new Node(original.data);
+			temp.next = original.next;
+			original.next = temp;
+			original = original.next.next;
+		}
+		original = head;
+		Node copy = null;
+		while(original != null){
+			original.next.arb = original.arb.next;
+			original = original.next.next;
+		}
+		while(original != null){
+			copy = original.next;
+			original.next = original.next.next;
+			copy.next = copy.next.next;
+			original = original.next;
+		}
+		return copy;
+	}
+	*/
+	public void alternateSplit(){
+		if(head == null || head.next == null)
+			return;
+		Node start = head;
+		int odd = 1;
+		Node h1 = null, h2 = null, c1 = null, c2 = null;
+		while(start != null){
+			if(odd == 1){
+				if(h1 == null){
+					h1 = start;
+					c1 = h1;
+				}else{
+					c1.next = start;
+					c1 = start;
+				}
+				odd = 0;
+			}else{
+				if(h2 == null){
+					h2 = start;
+					c2 = h2;
+				}else{
+					c2.next = start;
+					c2 = start;
+				}
+				odd = 1;
+			}
+			start = start.next;
+		}
+		c1.next = null;
+		c2.next = null;
+		printList(h1);
+		printList(h2);
+	}
+	
+	/*public void deleteMiddlePoints(){
+		if(head == null || head.next == null)
+			return;
+		Node prev = head;
+		Node curr = head.next;
+		while(curr != null){
+			Node temp = curr.next;
+			if((prev.data == curr.data && curr.data == temp.data) || (prev.y == curr.y && curr.y == temp.y)){
+				prev.next = temp;
+				curr = temp;
+				continue;
+			}
+			prev = curr;
+			curr = temp;
+		}	
+	}
+	*/
+	public void reverseAltAppend(){
+		if(head == null || head.next == null || head.next.next == null)
+			return;
+		Node prev = head;
+		Node curr = head.next;
+		Node reverse = null;
+		int odd = 0;
+		
+		while(curr.next != null){
+			if(odd == 0){
+				prev.next = curr.next;
+				curr.next = reverse;
+				reverse = curr;
+				curr = prev.next;
+				odd =1;
+			}else{
+				odd = 0;
+				prev = curr;
+				curr = curr.next;
+			}
+		}
+		curr.next = reverse;
+	}
+	
+	public Node reverseK(Node start, int k){
+		if(start == null || start.next == null)
+			return start;
+		
+		Node last = start;
+		Node prev = start;
+		Node curr = start.next;
+		for(int i = 0; i< k-1 && curr != null ; i++){
+			Node temp = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = temp;
+		}
+		last.next = reverseK(curr, k);
+		return prev;
 	}
 }

@@ -12,7 +12,8 @@ public static void main(String[] args){
 	linkedList.addNode(6);
 	linkedList.addNode(7);
 	linkedList.addNode(8);
-	linkedList.addNode(9);
+	//linkedList.addNode(9);
+	
 	
 	LinkedList ll = new LinkedList();
 	ll.addNode(9);
@@ -43,8 +44,11 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.deleteMiddle());
 	//linkedList.deleteNM(2,2);
 	//linkedList.printList(linkedList.reverseAltK(linkedList.head, 1, 3));
-	linkedList.swapKth(2);
-	linkedList.printList(linkedList.head);
+	//linkedList.swapKth(2);
+	//linkedList.printList(linkedList.head);
+	//linkedList.alternateSplit();
+	//linkedList.reverseAltAppend();
+	linkedList.printList(linkedList.reverseK(linkedList.head, 5));
 }
 
 }

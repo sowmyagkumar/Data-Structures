@@ -42,7 +42,9 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.swapNodes(20,11));
 	//linkedList.printList(linkedList.deleteMiddle());
 	//linkedList.deleteNM(2,2);
-	linkedList.printList(linkedList.reverseAltK(linkedList.head, 1, 3));
+	//linkedList.printList(linkedList.reverseAltK(linkedList.head, 1, 3));
+	linkedList.swapKth(2);
+	linkedList.printList(linkedList.head);
 }
 
 }

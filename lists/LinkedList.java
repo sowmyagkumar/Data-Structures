@@ -615,4 +615,45 @@ public class LinkedList{
 			return prev;
 		}
 	}
+	
+	public void swapKth(int k){
+		for(int i=1; i<=k; i++)
+			swapKthUtil(i);
+	}
+	
+	public void swapKthUtil(int k){
+		if(head == null || head.next == null || k<=0)
+			return;
+		
+		int length = len(head);
+		
+		if(length < k)
+			return;
+		
+		Node prevX = null;
+		Node currX = head;
+		for(int i = 0; i < k-1 && currX != null; i++){
+			prevX = currX;
+			currX = currX.next;
+		}
+		Node prevY = null;
+		Node currY = head;
+		for(int i = 0; i < length-k && currY != null; i++){
+			prevY = currY;
+			currY = currY.next;
+		}
+		if(prevX == prevY)
+			return;
+		if(prevX ==null)
+			head=currY;
+		
+		if(prevX!=null)
+		prevX.next = currY;
+		if(prevY!=null)
+		prevY.next = currX;
+		Node temp = currX.next;
+		currX.next = currY.next;
+		currY.next = temp;
+		return;
+	}
 }

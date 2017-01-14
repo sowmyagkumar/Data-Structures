@@ -48,7 +48,8 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.head);
 	//linkedList.alternateSplit();
 	//linkedList.reverseAltAppend();
-	linkedList.printList(linkedList.reverseK(linkedList.head, 5));
+	//linkedList.printList(linkedList.reverseK(linkedList.head, 5));
+	linkedList.printList(linkedList.mergeListsIter(linkedList.head, ll.head));
 }
 
 }

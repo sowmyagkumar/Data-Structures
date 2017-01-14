@@ -772,4 +772,45 @@ public class LinkedList{
 		last.next = reverseK(curr, k);
 		return prev;
 	}
+	
+	public Node mergeListsRecur(Node h1, Node h2){
+		if(h1 == null){
+			h1 = h2;
+			h2 = null;
+			return h1;
+		}
+		if(h2 == null){
+			return h1;
+		}
+		Node temp = h1.next;
+		h1.next = h2;
+		h2 = h2.next;
+		h1.next.next = mergeListsRecur(temp, h2);
+		return h1;
+	}
+	
+	public Node mergeListsIter(Node h1, Node h2){
+		if(h1 == null){
+			h1 = h2;
+			h2 = null;
+			return h1;
+		}
+		if(h2 == null){
+			return h1;
+		}
+		Node h = h1;
+		while(h1.next != null && h2 != null){
+			Node temp = h1.next;
+			h1.next = h2;
+			h2 = h2.next;
+			h1.next.next = temp;
+			
+			h1 = h1.next.next;
+		}
+		if(h1.next == null && h2 != null){
+			h1.next = h2;
+		}
+		h2 = null;
+		return h;
+	}
 }

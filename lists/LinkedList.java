@@ -556,4 +556,63 @@ public class LinkedList{
 		prev.next = slow.next;
 		return head;
 	}
+	
+	public void deleteNM(int n, int m){
+		head = deleteNMUtil(head, n, m);
+	}
+	
+	public Node deleteNMUtil(Node start, int n, int m){
+		if(start == null)
+			return start;
+		
+		int i = 0;
+		Node curr = start;
+		while(curr != null && i < n-1){
+			curr = curr.next;
+			i++;
+		}
+		if(curr == null)
+			return start;
+		Node temp = curr.next;
+		i = 0;
+		while(temp != null && i < m-1){
+			temp = temp.next;
+			i++;
+		}
+		
+		if(temp == null)
+			return start;
+	
+		curr.next = deleteNMUtil(temp.next, n, m);
+		return start;
+	}
+	
+	public Node reverseAltK(Node start, int rev, int k){
+		if(start == null)
+			return start;
+		
+		/* No reversal, only traverse k nodes*/
+		if(rev == 0){
+			Node curr = start;
+			for(int i = 0; i < k-1 && curr != null ; i++)
+				curr = curr.next;
+			if(curr == null)
+				return start;
+			curr.next = reverseAltK(curr.next, 1, k);
+			return start;
+		}else{
+			Node last = start;
+			Node prev = start;
+			Node curr = start.next;
+			
+			for(int i = 0; i < k-1 && curr != null; i++){
+				Node temp = curr.next;
+				curr.next = prev;
+				prev = curr;
+				curr = temp;
+			}
+			last.next = reverseAltK(curr, 0, k);
+			return prev;
+		}
+	}
 }

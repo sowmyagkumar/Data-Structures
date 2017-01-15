@@ -35,6 +35,7 @@ public class LinkedList{
 	Node head;
 	int i = 1;
 	static int carry=1;
+	static int borrow =0;
 	
 	public void addNode(int data){
 		if(head == null){
@@ -812,5 +813,93 @@ public class LinkedList{
 		}
 		h2 = null;
 		return h;
+	}
+	
+	public Node mergeSorted(Node h1, Node h2){
+		if(h1 == null)
+			return h2;
+		if(h2 == null)
+			return h1;
+		
+		if(h1.data > h2.data){
+			Node trans = h1;
+			h1 = h2;
+			h2 = trans;
+		}
+		Node h = h1;
+		Node prev = h1;
+		Node curr = prev.next;
+		while(curr!= null && h2 != null){
+			if(curr.data > h2.data){
+				prev.next = h2;
+				h2 = h2.next;
+				prev.next.next = curr;
+				prev = prev.next;
+			}else{
+				prev = curr;
+				curr = curr.next;
+			}
+		}
+		if(curr == null && h2 != null)
+			prev.next = h2;
+		h2 = null;
+		return h;
+	}
+	
+	public Node diff(Node h1, Node h2){
+		int l1 = len(h1);
+		int l2 = len(h2);
+		Node temp;
+		if(l1 != l2){
+			int diff = l1 - l2;
+			if(diff > 0){
+				for(int i = 0; i < diff; i++){
+					temp = new Node(0);
+					temp.next = h2;
+					h2 = temp;
+				}
+			}else{
+				diff = -1 * diff;
+				for(int i = 0; i < diff; i++){
+					temp = new Node(0);
+					temp.next = h1;
+					h1 = temp;
+				}
+			}
+				
+		}
+		Node s1 = h1;
+		Node s2 = h2;
+		while(h1 != null){
+			if(h1.data > h2.data){
+				break;
+			}else if(h1.data < h2.data){
+				temp = s1;
+				s1 = s2;
+				s2 = temp;
+				break;
+			}else{
+				h1 = h1.next;
+				h2 = h2.next;
+			}
+		}
+		return sameLengthDiffUtil(s1, s2);
+	}
+	
+	public Node sameLengthDiffUtil(Node h1, Node h2){
+		if(h1 == null)
+			return null;
+		Node temp = new Node();
+		temp.next = sameLengthDiffUtil(h1.next, h2.next);
+		if(borrow != 0)
+			h1.data --;
+		if(h1.data >= h2.data){
+			borrow = 0;
+			temp.data = h1.data - h2.data;
+		}else{
+			borrow = 1;
+			temp.data = 10 + h1.data - h2.data;
+		}
+		return temp;
 	}
 }

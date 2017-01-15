@@ -4,24 +4,36 @@ public class Main{
 
 public static void main(String[] args){
 	LinkedList linkedList = new LinkedList();
-	linkedList.addNode(1);
-	linkedList.addNode(2);
+	linkedList.addNode(9);
+	linkedList.addNode(9);
 	linkedList.addNode(3);
 	linkedList.addNode(4);
 	linkedList.addNode(5);
 	linkedList.addNode(6);
-	linkedList.addNode(7);
-	linkedList.addNode(8);
-	//linkedList.addNode(9);
-	
+	linkedList.addNode(17);
+	linkedList.addNode(180);
+	linkedList.addNode(9);
 	
 	LinkedList ll = new LinkedList();
 	ll.addNode(9);
-	ll.addNode(20);
-	ll.addNode(70);
-
-	//linkedList.reverseLinkedList();
+	ll.addNode(9);
+	ll.addNode(9);
+	ll.addNode(4);
 	
+	DoublyLinkedList dll = new DoublyLinkedList();
+	dll.push(20);
+	dll.push(80);
+	dll.insertAtEnd(90);
+	dll.insertAt(50, 0);
+	System.out.println("Before reversal:");
+	dll.printDll(dll.head);
+	System.out.println("After reversal:");
+	dll.reverseDll();
+	dll.printDll(dll.head);
+	
+	
+	
+	//linkedList.reverseLinkedList();
 	//linkedList.NFromEnd(linkedList.head, 6);
 	//linkedList.printReverse(linkedList.head);
 	//linkedList.deleteAlternate();
@@ -49,7 +61,9 @@ public static void main(String[] args){
 	//linkedList.alternateSplit();
 	//linkedList.reverseAltAppend();
 	//linkedList.printList(linkedList.reverseK(linkedList.head, 5));
-	linkedList.printList(linkedList.mergeListsIter(linkedList.head, ll.head));
+	//linkedList.printList(linkedList.mergeListsIter(linkedList.head, ll.head));
+	//linkedList.printList(linkedList.mergeSorted(linkedList.head, ll.head));
+	//linkedList.printList(linkedList.diff(linkedList.head, ll.head));
 }
 
 }

@@ -36,6 +36,7 @@ public class LinkedList{
 	int i = 1;
 	static int carry=1;
 	static int borrow =0;
+	Node left;
 	
 	public void addNode(int data){
 		if(head == null){
@@ -901,5 +902,32 @@ public class LinkedList{
 			temp.data = 10 + h1.data - h2.data;
 		}
 		return temp;
+	}
+	
+	public void sumPair(int sum){
+		left = head;
+		sumPairUtil(head, sum);
+	}
+	
+	public void sumPairUtil(Node right, int sum){
+		if(right == null)
+			return;
+		
+		sumPairUtil(right.next,sum);
+		while(left!=null){
+			int val = right.data + left.data;
+			
+			if(val == sum ){ //to avoid repetition
+			if(left.data < right.data)
+				System.out.println("("+left.data+","+right.data+")");
+				break;
+			}
+			if(val < sum)
+				left = left.next;
+			
+			if(val > sum)
+				break;
+			
+		}
 	}
 }

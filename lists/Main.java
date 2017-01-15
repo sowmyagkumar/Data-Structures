@@ -4,15 +4,15 @@ public class Main{
 
 public static void main(String[] args){
 	LinkedList linkedList = new LinkedList();
-	linkedList.addNode(9);
-	linkedList.addNode(9);
 	linkedList.addNode(3);
-	linkedList.addNode(4);
-	linkedList.addNode(5);
 	linkedList.addNode(6);
-	linkedList.addNode(17);
-	linkedList.addNode(180);
+	linkedList.addNode(7);
+	linkedList.addNode(8);
 	linkedList.addNode(9);
+	linkedList.addNode(10);
+	linkedList.addNode(11);
+	//linkedList.addNode(180);
+	//linkedList.addNode(9);
 	
 	LinkedList ll = new LinkedList();
 	ll.addNode(9);
@@ -20,7 +20,7 @@ public static void main(String[] args){
 	ll.addNode(9);
 	ll.addNode(4);
 	
-	DoublyLinkedList dll = new DoublyLinkedList();
+	/*DoublyLinkedList dll = new DoublyLinkedList();
 	dll.push(20);
 	dll.push(80);
 	dll.insertAtEnd(90);
@@ -30,7 +30,7 @@ public static void main(String[] args){
 	System.out.println("After reversal:");
 	dll.reverseDll();
 	dll.printDll(dll.head);
-	
+	*/
 	
 	
 	//linkedList.reverseLinkedList();
@@ -64,6 +64,7 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.mergeListsIter(linkedList.head, ll.head));
 	//linkedList.printList(linkedList.mergeSorted(linkedList.head, ll.head));
 	//linkedList.printList(linkedList.diff(linkedList.head, ll.head));
+	linkedList.sumPair(17);
 }
 
 }

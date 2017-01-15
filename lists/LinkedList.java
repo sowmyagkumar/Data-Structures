@@ -954,4 +954,36 @@ public class LinkedList{
 		return mergeSorted(a,b);
 	}
 	
+	/*Merge two sorted linked lists such that merged list is in reverse order*/
+	public Node mergeReverse(Node h1, Node h2){
+		Node result = null;
+		Node temp;
+		while(h1 != null || h2 != null){
+			if(h1 == null){
+				temp = new Node(h2.data);
+				h2 = h2.next;
+				temp.next = result;
+				result = temp;
+			}else if(h2 == null){
+				temp = new Node(h1.data);
+				h1 = h1.next;
+				temp.next = result;
+				result = temp;
+			}else{
+				if(h1.data > h2.data){
+					temp = new Node(h2.data);
+					h2 = h2.next;
+					temp.next = result;
+					result = temp;
+				}else{
+					temp = new Node(h1.data);
+					h1 = h1.next;
+					temp.next = result;
+					result = temp;
+				}
+			}
+			
+		}
+		return result;
+	}
 }

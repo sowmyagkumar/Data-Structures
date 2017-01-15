@@ -5,14 +5,14 @@ public class Main{
 public static void main(String[] args){
 	LinkedList linkedList = new LinkedList();
 	linkedList.addNode(3);
-	linkedList.addNode(6);
-	linkedList.addNode(7);
+	linkedList.addNode(16);
+	linkedList.addNode(70);
 	linkedList.addNode(8);
 	linkedList.addNode(9);
 	linkedList.addNode(10);
 	linkedList.addNode(11);
-	//linkedList.addNode(180);
-	//linkedList.addNode(9);
+	linkedList.addNode(180);
+	linkedList.addNode(19);
 	
 	LinkedList ll = new LinkedList();
 	ll.addNode(9);
@@ -64,7 +64,8 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.mergeListsIter(linkedList.head, ll.head));
 	//linkedList.printList(linkedList.mergeSorted(linkedList.head, ll.head));
 	//linkedList.printList(linkedList.diff(linkedList.head, ll.head));
-	linkedList.sumPair(17);
+	//linkedList.sumPair(17);
+	linkedList.printList(linkedList.mergeSort(linkedList.head));
 }
 
 }

@@ -930,4 +930,28 @@ public class LinkedList{
 			
 		}
 	}
+	
+	public Node mergeSort(Node start){
+		
+		if(start == null||start.next == null)
+			return start;
+		
+		Node slow = start;
+		Node fast = start.next;
+		
+		while(fast != null && fast.next != null){
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		
+		Node a = start;
+		Node b = slow.next;
+		slow.next = null;
+	
+		a=mergeSort(a);
+		b=mergeSort(b);
+		
+		return mergeSorted(a,b);
+	}
+	
 }

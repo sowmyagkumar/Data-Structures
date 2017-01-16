@@ -6,9 +6,9 @@ public static void main(String[] args){
 	LinkedList linkedList = new LinkedList();
 	linkedList.addNode(3);
 	linkedList.addNode(16);
-	linkedList.addNode(70);
-	linkedList.addNode(80);
-	linkedList.addNode(90);
+	linkedList.addNode(-70);
+	linkedList.addNode(-80);
+	linkedList.addNode(-90);
 	/*linkedList.addNode(10);
 	linkedList.addNode(11);
 	linkedList.addNode(180);
@@ -66,7 +66,8 @@ public static void main(String[] args){
 	//linkedList.printList(linkedList.diff(linkedList.head, ll.head));
 	//linkedList.sumPair(17);
 	//linkedList.printList(linkedList.mergeSort(linkedList.head));
-	linkedList.printList(linkedList.mergeReverse(linkedList.head, ll.head));
+	//linkedList.printList(linkedList.mergeReverse(linkedList.head, ll.head));
+	linkedList.sortAbsolute();
 }
 
 }

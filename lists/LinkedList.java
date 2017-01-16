@@ -986,4 +986,27 @@ public class LinkedList{
 		}
 		return result;
 	}
+	
+	public Node sortAbsolute(){
+		if(head == null || head.next == null)
+			return head;
+		
+		Node prev = head;
+		Node curr = head.next;
+		
+		while(curr != null){
+			if(prev.data > curr.data){
+				Node temp = curr.next;
+				prev.next = temp;
+				curr.next = head;
+				head = curr;
+				curr = temp;
+			}else{
+				prev = curr;
+				curr = curr.next;
+			}
+		}
+		printList(head);
+		return head;
+	}
 }

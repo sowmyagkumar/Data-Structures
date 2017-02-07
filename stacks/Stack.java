@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Stack<T>{
 	ArrayList<T> stack;
 	
-	Stack(){
+	public Stack(){
 		stack = new ArrayList<T>();
 	}
 	
@@ -30,4 +30,14 @@ public T peek(){
 public int size(){
 	return stack.size();
 }
+
+public void printStack(Stack<T> stack){
+		if(stack.size() == 0)
+			return;
+		T x = stack.pop();
+		System.out.println(x);
+		printStack(stack);
+		stack.push(x);
+}
+
 }

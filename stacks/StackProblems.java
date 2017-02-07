@@ -52,6 +52,25 @@ public void infixToPostfix(String str){
 		System.out.print(stack.pop());
 }
 
+public void pushBottom(Stack<Integer> stack, int x){
+	if(stack.size() == 0){
+		stack.push(x);
+		return;
+	}
+	int y = stack.pop();
+	pushBottom(stack, x);
+	stack.push(y);
+}
+
+public void reverseStackRecurse(Stack<Integer> stack){
+	if(stack.size() == 0){
+		return;
+	}
+	int x = stack.pop();
+	reverseStackRecurse(stack);
+	pushBottom(stack, x);
+}
+
 /*public void infixToPrefix(String str){
 	int len = str.length();
 	Stack<Character> stack1 = new Stack<Character>();

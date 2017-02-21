@@ -22,10 +22,10 @@ public class LongestConsecutivePath{
 	}
     
 	public static void main(String[] args){
-	    char[][] M={{'a','c','d'},{'h','f','e'},{'i','g','b'}};
+	    char[][] M={{'a','c','d'},{'h','b','e'},{'i','g','f'}};
 	    int i = 0, j =0; 
 		boolean b = false;
-		char start = 'a';
+		char start = 'e';
 	    for(i=0; i<3; i++){
 		    for(j=0; j<3; j++){
 			    if(M[i][j] == start){

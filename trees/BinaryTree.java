@@ -4,45 +4,9 @@ import java.util.ArrayList;
 import queues.Queue;
 import stacks.Stack;
 
-class Node<T>{
-    Node left;
-	Node right;
-	Node nextRight;
-	T data;
-	
-	Node(T data){
-		this.data = data;
-		this.left = null;
-		this.right = null;
-	}
-	
-	public void setLeft(Node left){
-	    this.left = left;
-	}
-	
-	public Node getLeft(){
-	    return left;
-	}
-	
-	public void setRight(Node right){
-	    this.right = right;
-	}
-	
-	public Node getRight(){
-	    return right;
-	}
-	
-	public void setData(T data){
-	    this.data = data;
-	}
-	
-	public T getData(){
-	    return data;
-	}
-}
 
 public class BinaryTree<T>{
-    Node root;
+    public Node root;
 	static int index=0;
 	
     public void setRoot(T data){

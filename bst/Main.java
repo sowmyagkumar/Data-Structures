@@ -1,26 +1,34 @@
 package bst;
 
+import trees.BinaryTree;
+import trees.Node;
+
 public class Main{
 
-public static void main(String[] args){
-    BinarySearchTree bst = new BinarySearchTree();
-	bst.addNode(6);
-	bst.addNode(8);
-	bst.addNode(1);
-	bst.addNode(3);
-	bst.addNode(18);
-	bst.addNode(28);
-	bst.addNode(5);
-	/*bst.printInorder(bst.root);
-	System.out.println(bst.searchBst(bst.root, 180));
-	bst.deleteNode(bst.root, 28);
-	bst.printInorder(bst.root);
-	System.out.println("Minimum value:"+bst.minNode(bst.root).getData());
-	//bst.printPreSucc(bst.root, 18);
-	System.out.println("lca is:"+bst.lca(bst.root, 5,28).getData());
-	System.out.println("Is bst:"+bst.checkIfBst(bst.root, Integer.MIN_VALUE, Integer.MAX_VALUE));
-	bst.printSuccessor(bst.root,8);*/
-	bst.printKSmallest(bst.root, 6);
-	System.out.println(bst.findPairWithSum(bst.root, 9));
-}
+    public static void main(String[] args){
+	    BinarySearchTree bst = new BinarySearchTree();
+		bst.insert(3);
+		bst.insert(10);
+		bst.insert(5);
+		/*BinarySearchTree bs = new BinarySearchTree();
+		bs.insert(4);
+		bs.insert(2);
+		bs.insert(6);*/
+		//bst.inorderPreSucc(2);
+		//System.out.println("lca: "+bst.lca(2,10));
+		//bst.kthSmallestIterative(1);
+		//System.out.println(bst.sumPresentOptimal(7));
+		//bst.printMergedBST(bs.root);
+		//bst.floor(4);
+		BinaryTree<Integer> binaryTree = new BinaryTree<Integer>();
+		binaryTree.setRoot(1);
+		binaryTree.root.setLeft(new Node(2));
+		binaryTree.root.setRight(new Node(3));
+		binaryTree.root.getLeft().setLeft(new Node(4));
+		binaryTree.root.getRight().setLeft(new Node(14));
+		binaryTree.root.getLeft().getLeft().setLeft(new Node(9));
+		binaryTree.root.getLeft().setRight(new Node(5));
+		bst.convertToBST(binaryTree.root);
+	}
+
 }

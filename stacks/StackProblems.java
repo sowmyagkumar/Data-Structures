@@ -18,36 +18,42 @@ public void infixToPostfix(String str){
 	int len = str.length();
 	for(int i = 0; i < len; i++){
 		char c = str.charAt(i);
-		if(isOperand(c)){
+        if(isOperand(c)){
 			System.out.print(c);
+            continue;
+		}
+		if(c == '('){
+			stack.push(c);
+            continue;
+		}
+		if(c == ')'){
+			while(stack.peek() != '('){
+                System.out.print(stack.pop());
+			}
+            if(stack.size() == 0){
+                System.out.println("Invalid Expression");
+                return;
+            }
+			stack.pop();
+            continue;
+		}
+		if(stack.size() == 0){
+                    stack.push(c);
 		}else{
-			if(c == '('){
-				stack.push(c);
+			if(stack.peek() =='('){
+			    stack.push(c);
 			}else{
-				if(c == ')'){
-					while(stack.peek() != '('){
-						System.out.print(stack.pop());
-					}
-					stack.pop();
+				if(isHigher(c, stack.peek())){
+					System.out.print(c);
 				}else{
-					if(stack.size() == 0){
-						stack.push(c);
-					}else{
-						if(stack.peek() =='('){
-							stack.push(c);
-						}else{
-							if(isHigher(c, stack.peek())){
-								System.out.print(c);
-							}else{
-								System.out.print(stack.pop());
-								stack.push(c);
-							}
-						}
+				    System.out.print(stack.pop());
+					stack.push(c);
 					}
 				}
-			}
 		}
-	}
+    }
+			
+		
 	while(stack.size() > 0)
 		System.out.print(stack.pop());
 }
